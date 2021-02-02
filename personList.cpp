@@ -8,7 +8,7 @@ using std::endl;
 PersonList::PersonList(){
     capacity = 2;
     numPeople = 0;
-    theList = new Person*[capacity];
+   this->theList = new Person*[capacity];
 }
 
 PersonList::~PersonList(){
@@ -35,16 +35,25 @@ void PersonList::addPerson(const char* child_name, const char* father_name, cons
       // father_name is not in the theList so create a new person
       father = new Person(father_name, 0, 0);
       insertIntoList(father);
+
     }
     if(mother == 0){
       // mother_name is not in the theList so create a new person
       mother = new Person(mother_name, 0, 0);
       insertIntoList(mother);
+
     }
     Person *newChild = new Person(child_name, father, mother);
     insertIntoList(newChild);
     father->addChild(newChild);
     mother->addChild(newChild);
+
+//delete[] father;
+//delete[] mother;
+//delete newChild;
+//father = NULL;
+//mother = NULL;
+//newChild = NULL;
 }
 
 void PersonList::insertIntoList(Person *newPerson){

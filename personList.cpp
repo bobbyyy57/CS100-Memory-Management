@@ -6,9 +6,9 @@ using std::cout;
 using std::endl;
 
 PersonList::PersonList(){
-    capacity = 2;
-    numPeople = 0;
-   this->theList = new Person*[capacity];
+   capacity = 2;
+   numPeople = 0;
+   theList = new Person*[capacity];
 }
 
 PersonList::~PersonList(){

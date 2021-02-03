@@ -6,16 +6,16 @@ using std::cout;
 using std::endl;
 
 PersonList::PersonList(){
-    capacity = 2;
-    numPeople = 0;
-    theList = new Person*[capacity];
+   capacity = 2;
+   numPeople = 0;
+   theList = new Person*[capacity];
 }
 
 PersonList::~PersonList(){
-    for (int i = 0; i < numPeople; ++i) {
+for(int i = 0; i< numPeople; ++i) {
 	delete theList[i];
-    }
-    delete[] theList;
+}
+   delete [] theList;
 }
 
 void PersonList::addPerson(const char* child_name, const char* father_name, const char* mother_name){
@@ -38,17 +38,20 @@ void PersonList::addPerson(const char* child_name, const char* father_name, cons
       // father_name is not in the theList so create a new person
       father = new Person(father_name, 0, 0);
       insertIntoList(father);
+
     }
     if(mother == 0){
       // mother_name is not in the theList so create a new person
       mother = new Person(mother_name, 0, 0);
       insertIntoList(mother);
+
     }
     Person *newChild = new Person(child_name, father, mother);
     insertIntoList(newChild);
     father->addChild(newChild);
     mother->addChild(newChild);
-  }
+
+}
 
 void PersonList::insertIntoList(Person *newPerson){
     if(numPeople == capacity) expand(&theList, &capacity);

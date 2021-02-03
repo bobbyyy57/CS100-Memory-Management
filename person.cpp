@@ -53,7 +53,8 @@ void Person::printLineage(char dir, int level){
             father->printLineage(dir, level + 1);
         }
     }
-    delete[] temp;
+
+delete[] temp;
 }
 
 
@@ -67,9 +68,9 @@ char* Person::compute_relation(int level){
     char *temp = strcpy(new char[strlen("grand ") + 1], "grand ");;
     
     for(int i = 2; i <= level; i++){
-  	char *temp3 = temp;
+	char *temp3 = temp;
         char *temp2 = new char[strlen("great ") + strlen(temp) + 1];
-        strcat(strcpy(temp2, "great "), temp);
+        strcat(strcpy(temp2, "grat "), temp);
         temp = temp2;
 	delete[] temp3;
     }
@@ -84,7 +85,7 @@ void expand(Person ***t, int *MAX){
   Person **temp = new Person*[2 * *MAX];
   memcpy(temp, *t, *MAX * sizeof(**t));
   *MAX *= 2;
-  delete[] *t;
-  *t = temp;  
+delete[] *t;
+  *t = temp;
 }
 

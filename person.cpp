@@ -6,9 +6,9 @@ using std::cout;
 using std::endl;
 
 Person::Person(const char *name_, Person* father_, Person* mother_){
-   this-> name = new char[strlen(name_)+1];
+    this->name = new char[strlen(name_)+1];
     strcpy(this->name, name_);
-   this->father = father_;
+    this->father = father_;
     this->mother = mother_;
     capacity = 1;
     numChildren = 0;
@@ -17,7 +17,7 @@ Person::Person(const char *name_, Person* father_, Person* mother_){
 
 Person::~Person(){
     delete[] children;
-delete[] name;
+    delete[] name;
 }
 
 void Person::addChild(Person *newChild){
@@ -53,8 +53,10 @@ void Person::printLineage(char dir, int level){
             father->printLineage(dir, level + 1);
         }
     }
+
 delete[] temp;
 }
+
 
 /* helper function to compute the lineage
 * if level = 0 then returns the empty string
@@ -72,6 +74,7 @@ char* Person::compute_relation(int level){
         temp = temp2;
 	delete[] temp3;
     }
+  
     return temp;
 }
 
@@ -85,3 +88,4 @@ void expand(Person ***t, int *MAX){
 delete[] *t;
   *t = temp;
 }
+
